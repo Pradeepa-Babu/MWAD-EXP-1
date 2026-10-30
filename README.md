@@ -189,9 +189,5 @@ Upload to GitHub Pages for free hosting.
 
 ## OUTPUT
 c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-10-30 203022.png
-c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-10-30 203058.png
-c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-10-30 203108.png
-c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-10-30 203118.png
-c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-10-30 203126.png
 ## RESULT
 The program for creating Portfolio using HTML and CSS is executed successfully.
