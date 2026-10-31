@@ -195,20 +195,18 @@ A personal portfolio website created using HTML and CSS.
 
 ## Output Screenshots
 
-### Screenshot 1
+
 ![Screenshot 1](images/1.png)
 
-### Screenshot 2
+
 ![Screenshot 2](images/2.png)
 
-### Screenshot 3
+
 ![Screenshot 3](images/3.png)
 
-### Screenshot 4
+
 ![Screenshot 4](images/4.png)
 
-### Screenshot 5
-![Screenshot 5](images/5.png)
 
 ## RESULT
 The program for creating Portfolio using HTML and CSS is executed successfully.
