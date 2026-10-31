@@ -49,137 +49,316 @@ Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
 ```
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | Pradeepa</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>My Portfolio</title>
+    <style>
+        /* GLOBAL STYLES */
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --bg: #f9f9f9;
+            --text: #333;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* SECTIONS COMMON */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        /* INTRO SECTION */
+        #intro {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #intro h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        #intro p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-img {
+            flex: 1;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        /* PROJECTS SECTION (CSS GRID) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* CONTACT SECTION */
+        #contact {
+            text-align: center;
+            background: #fff;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            #intro h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- HEADER & NAVIGATION -->
     <header>
-        <nav class="navbar">
-            <h2 class="logo">Portfolio<span>.</span></h2>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+        <nav>
+            <a href="#" class="logo">Portfolio</a>
+            <ul>
+                <li><a href="#intro">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Home Section -->
-    <section id="home" class="home">
-        <div class="home-content">
-            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
-
-            <h1>Hello, I'm <span>Pradeepa</span></h1>
-
-            <h3>Engineering Student & Creative Designer</h3>
-
-            <p>
-                I love exploring technology, creating designs,
-                and turning creative ideas into reality.
-            </p>
-
-            <a href="#projects" class="btn">Explore My Work</a>
-        </div>
-
-        <div class="home-image">
-            <img src="images/profile.jpg" alt="My Profile">
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-
+    <!-- INTRO SECTION -->
+     <section id="intro">
+    <img src="images/pradeepa.jpg" alt="Pradeepa" class="profile-pic">
+    <h1>Hi, I'm Pradeepa</h1>
+    <p>A Web Developer passionate about creating interactive experiences.</p>
+    <a href="#projects" class="btn">View My Work</a>
+</section>
+   
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
         <div class="about-content">
-            <p>
-                I am an engineering student passionate about
-                technology, programming, UI/UX design, and creativity.
-
-                I enjoy learning new skills, solving problems,
-                and developing meaningful digital experiences.
-            </p>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Workspace">          </div>
+            <div class="about-text">
+                <h3>Designing with Purpose</h3>
+                <br>
+                <p>I am a dedicated developer with experience in building responsive, user-friendly websites. I enjoy solving complex problems and learning new technologies to improve my craft. When I'm not coding, I'm exploring new design trends.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2 class="section-title">My Skills</h2>
-
-        <div class="skills-container">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">C Programming, Python Programming</div>
-            <div class="skill">UI/UX Design</div>
-            <div class="skill">Figma</div>
-            <div class="skill">Creative Design</div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2 class="section-title">My Projects</h2>
-
-        <div class="projects-container">
-
-            <div class="project-card">
-                <img src="images/project1.jpg" alt="UI UX Project">
-                <div class="project-info">
-                    <h3>UI/UX Design</h3>
-                    <p>A creative and user-friendly app interface design.</p>
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="grid">
+            <!-- Project 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+                <div class="card-content">
+                    <h3>Data Dashboard</h3>
+                    <p>A responsive analytics dashboard built with CSS Grid and modern web APIs.</p>
                 </div>
             </div>
-
-            <div class="project-card">
-                <img src="images/project2.jpg" alt="Web Project">
-                <div class="project-info">
-                    <h3>Web Development</h3>
-                    <p>A responsive website created using HTML and CSS.</p>
+            <!-- Project 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=400&q=80" alt="Project 2">
+                <div class="card-content">
+                    <h3>E-Commerce Store</h3>
+                    <p>A full storefront UI featuring optimized images, flexbox layouts, and smooth hover transitions.</p>
                 </div>
             </div>
-
-            <div class="project-card">
-                <img src="images/project3.jpg" alt="Artwork">
-                <div class="project-info">
-                    <h3>Creative Artwork</h3>
-                    <p>A collection of my drawings and digital artwork.</p>
+            <!-- Project 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80" alt="Project 3">
+                <div class="card-content">
+                    <h3>Coding Blog</h3>
+                    <p>A clean, readable technical blog template designed with typography and accessibility in mind.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <h2 class="section-title">Contact Me</h2>
-
-        <p>Let's connect and create something amazing!</p>
-
-        <div class="contact-details">
-            <p>Email: pradeepab2323@gmail.com</p>
-            <p>GitHub: github.com/Pradeepa-Babu</p>
-            <p>LinkedIn: https://www.linkedin.com/in/pradeepa-b-54433437a</p>
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Currently open to new opportunities. Let's build something great together.</p>
+        <div class="contact-links">
+            <a href="mailto:pradeepab2323@gmail.com">Email Me</a>
+            <a href="https://github.com/Pradeepa-Babu" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/pradeepa-b-54433437a " target="_blank">LinkedIn</a>
         </div>
-
-        <a href="mailto:pradeepab2323@gmail.com" class="btn">
-            Send Me an Email
-        </a>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Pradeepa. All Rights Reserved.</p>
+        <p>&copy; 2026 Pradeepa. All rights reserved.</p>
     </footer>
 
 </body>
